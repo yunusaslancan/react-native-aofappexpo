@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-
+import  SQLite from 'expo-sqlite';
 import {Picker} from '@react-native-community/picker';
 
 export default function Home() {
