@@ -2,13 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import sqliteDB from '../../sqliteDB';
-import db from '../../www/aofdbb.db';
+import db from '../../www/aofdb.db';
+import { set } from 'react-native-reanimated';
 export default function Home() {
+
+
   //data çekilirken kullanılacak state'ler
   const [lessons, setLessons] = useState([]);
   const [department, setDepartment] = useState([]);
 
-
+  
   useEffect(() => {
     (async () => {
       await sqliteDB.openDatabase(db);
@@ -24,21 +27,18 @@ export default function Home() {
     } catch (e) {
       setDepartment(e.message);
     }
+    
     console.log(department);
   };
   loadAction();
+        
+  
 
   return (
     <View style={styles.container}>
       <View style={styles.pickerView}>
-        <Picker style={styles.pickerStyle}
-        mode="dropdown"
-        onValueChange={()=>{}}>
-        
-       
-
-                 
-        </Picker>
+        <Picker style={styles.pickerStyle}>
+        </Picker> 
       </View>
       <View style={styles.pickerView}>
         <Picker style={styles.pickerStyle}>
